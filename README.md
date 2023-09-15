@@ -11,5 +11,6 @@ if the file in *Workplace is not pdf -> print "The file is NOT a PDF. Please try
 ```bash
 # Run the following command in your terminal
 python main.py
+```
 
 all rendered pdfs are saved in *Output directory
