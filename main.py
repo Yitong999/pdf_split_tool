@@ -11,6 +11,14 @@ def main():
     if valid_check() == False:
         return
     
+    output_folder = 'Output'
+
+    # Check if the folder exists
+    if not os.path.exists(output_folder):
+        # If it doesn't exist, create the folder
+        os.makedirs(output_folder)
+ 
+
     work_path = "Workplace"
     files_in_folder = os.listdir(work_path)
     file_path = "Workplace/" + files_in_folder[0]
@@ -102,6 +110,24 @@ def read_name(pdf_file_path, page_num, line_number = 1):
     
     return name
 
+def clean():
+    # Specify the path to the "Output" folder
+    output_folder = 'Output'  # Replace with the actual path to your folder
+
+    # Check if the folder exists
+    if os.path.exists(output_folder) and os.path.isdir(output_folder):
+        # Get a list of files in the folder
+        files_in_folder = os.listdir(output_folder)
+        
+        # Loop through the files and remove each one
+        for file_name in files_in_folder:
+            file_path = os.path.join(output_folder, file_name)
+            os.remove(file_path)
+        
+        print(f"All previous files in the '{output_folder}' folder have been removed.")
+
+
+
 
 
 
@@ -110,5 +136,5 @@ def read_name(pdf_file_path, page_num, line_number = 1):
 
 
 if __name__ == '__main__':
-
+    clean()
     main()
